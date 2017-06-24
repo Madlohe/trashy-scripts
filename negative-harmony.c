@@ -6,7 +6,6 @@
  */
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 char sharps[25][3] =
@@ -20,12 +19,13 @@ char flats[25][3] =
 int main(int argc, char** argv) {
   if(argc < 2) {
     printf("Usage: %s KEY NOTE [NOTES...]\n", argv[0]);
+    return 1;
   }
   
   int key; //tonal center represented as an index in the globals.
   int low_mirror; // minor third of key. actual 'mirror' is between m/M3.
   int i, j;
-  for(i = 0; i < 12, i++) {
+  for(i = 0; i < 12; i++) {
     if(strncmp(sharps[i], argv[1], 2) == 0 ||
        strncmp(flats[i],  argv[1], 2) == 0) {
       key = i;
@@ -38,7 +38,7 @@ int main(int argc, char** argv) {
   int current; // Current note
   int diff;
   for(j = argc-1; j >= 2; j--) {
-    for(i = 0; i < 12, i++) {
+    for(i = 0; i < 12; i++) {
       if(strncmp(sharps[i], argv[j], 2) == 0 ||
          strncmp(flats[i],  argv[j], 2) == 0) {
         current = i;
