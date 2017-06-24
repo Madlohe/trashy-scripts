@@ -42,7 +42,7 @@ int main(int argc, char** argv) {
       if(strncmp(sharps[i], argv[j], 2) == 0 ||
          strncmp(flats[i],  argv[j], 2) == 0) {
         current = i;
-        diff = current - low_mirror - 1;
+        diff = current - low_mirror + 1;
         int to_print = low_mirror - diff;
         while(to_print > 20) {
           to_print -= 12;
